@@ -1,6 +1,6 @@
 function Offers(){
     return (
-        <section className="bg-gray-100 w-[90%] max-w-[500px] min-h-[200px] mb-[50px] m-auto p-5 mt-[30px] rounded-xl shadow-2xl">
+        <section className="bg-gray-100 w-[90%] max-w-[800px] min-h-[200px] mb-[50px] m-auto p-5 mt-[30px] rounded-xl shadow-2xl">
             <h2 className="text-center text-2xl font-bold mt-[20px] mb-[30px]">عروض المنصة</h2>
             <div className="flex flex-col md:flex-row gap-7 justify-evenly ">
                 <div className="border-2 border-blue-500 rounded-2xl shadow-lg bg-white pt-[15px] pb-[15px] mb-[20px] max-w-[400px] m-auto">
