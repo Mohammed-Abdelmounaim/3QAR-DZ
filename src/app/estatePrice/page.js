@@ -94,22 +94,63 @@ async function PricesDisplay({ searchParams }){
         
 
     return(
-        <section className="w-[450px] h-[400px] pt-[20px] bg-gray-200 m-auto mt-[40px] mb-[50px] rounded-xl shadow-xl">
+        <section className="w-[90%] bg-gray-200 m-auto mt-10 mb-[50px] rounded-xl shadow-xl flex flex-col md:flex-row gap-5 p-3">
+
             {minestatePrice ? (
-            <div className="w-[90%] h-[150px] border-2 border-green-600 m-auto rounded-xl text-center pt-[30px]" dir="rtl">
-                <p className="font-bold p-1">بناءً على مواصفات العقار التي أدخلتها وبناءً على الأسعار المقننة من طرف مديرية الضرائب، تبلغ قيمة عقارك بين <br></br><span className="text-green-600 text-lg font-bold">{minestatePrice.toLocaleString()} دج</span> و بين <span className="text-green-600 text-lg font-bold">{maxestatePrice.toLocaleString()} دج</span></p>
-            </div> 
+                <div
+                    className="w-full md:w-[48%] border-2 border-green-600 rounded-xl bg-white p-5 flex flex-col items-center justify-center text-center"
+                    dir="rtl"
+                >
+                    <img
+                        src="/images/offDoc.png"
+                        alt="Official price range"
+                        className="w-[150px] h-[150px] object-contain mb-4"
+                    />
+
+                    <p className="font-bold leading-8">
+                        بناءً على مواصفات العقار التي أدخلتها وبناءً على الأسعار المقننة من طرف مديرية الضرائب، تبلغ قيمة عقارك بين
+                        <br />
+                        <span className="text-green-600 text-xl font-bold">
+                            {minestatePrice.toLocaleString()} دج
+                        </span>
+                        {" "}و بين{" "}
+                        <span className="text-green-600 text-xl font-bold">
+                            {maxestatePrice.toLocaleString()} دج
+                        </span>
+                    </p>
+                </div>
             ) : (
-                <p className="font-bold text-center mt-[20px]">لا توجد بيانات تسعير لهذا العقار</p>
+                <div className="w-full md:w-[48%] border-2 border-green-600 rounded-xl bg-white p-5 flex items-center justify-center">
+                    <p className="font-bold text-center">
+                        لا توجد بيانات تسعير لهذا العقار
+                    </p>
+                </div>
             )}
 
-            <div className="w-[90%] h-[150px] border-2 border-blue-500 m-auto rounded-xl text-center mt-[45px] pt-[35px]" dir="rtl">
-                {aiError ? ( <p className="font-bold text-red-600">{aiError}</p> 
-            ) : aiPrice ? ( 
-                <p className="font-bold"> بناءً على توقعات نموذج الذكاء الاصطناعي ومقارنةً بأسعار العقارات في السوق الجزائري، قيمة عقارك هي <span className="text-blue-600 text-lg font-bold block mt-2">{aiPrice.toLocaleString()} da</span> </p> 
-            ) : (
-                 <p className="font-bold">جاري تحميل سعر الذكاء الاصطناعي...</p> )}
+            <div
+                className="w-full md:w-[48%] border-2 border-blue-500 rounded-xl bg-white p-5 flex flex-col items-center justify-center text-center"
+                dir="rtl"
+            >
+                <img
+                    src="/images/ai.jpg"
+                    alt="AI estimated price"
+                    className="w-[150px] h-[150px] object-contain mb-4"
+                />
+
+                {aiError ? (
+                    <p className="font-bold text-red-600">{aiError}</p>
+                ) : aiPrice ? (
+                    <p className="font-bold leading-8">
+                        بناءً على توقعات نموذج الذكاء الاصطناعي ومقارنةً بأسعار العقارات في السوق الجزائري، قيمة عقارك هي
+                        <span className="text-blue-600 text-xl font-bold block mt-3">
+                            {aiPrice.toLocaleString()} دج
+                        </span>
+                    </p>
+                ) : (
+                    <p className="font-bold">جاري تحميل سعر الذكاء الاصطناعي...</p>
+                )}
             </div>
+
         </section>
     );
 }
